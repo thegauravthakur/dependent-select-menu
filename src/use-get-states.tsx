@@ -10,7 +10,7 @@ async function fetchStates(abortController: AbortController) {
         signal: abortController.signal,
     });
     const data = await response.json();
-    return data.data.states as State[];
+    return (data?.data?.states as State[]) ?? [];
 }
 
 export function useGetStates() {

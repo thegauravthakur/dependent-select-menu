@@ -11,7 +11,7 @@ async function fetchCities(stateName: string, controller: AbortController) {
         signal: controller.signal,
     });
     const data = await response.json();
-    return data.data as string[];
+    return (data?.data as string[]) ?? [];
 }
 
 export function useGetCities(activeCityName: string | null) {
